@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+</head>
+<body>
+    <h1>Criando links externos</h1>
+    <a href="https://github.com/LuucasDutra/Lucas"> Meu perfil do github</a>
+
+    <h2>Identificando o idioma do site</h2>
+    <a href="https://www.w3.org/TR/2014/REC-html5-20141028/obsolete.html" hreflang="en"> Tags Obsoletas (em inglês)</a>
+
+    <h2>Abrindo links em novas guias</h2>
+    <p>O parametro target define o comportamento do link que o usuário vai abrir. Entre os possiveis valores temos:</p>
+    <ul>
+        <li>_blank: vai abrir o link em uma nova aba em branco</li>
+        <li>_self: vai abrir o link na janela atual (padrão)</li>
+        <li>_top: vai desfazer todos os frames e abrir no navegador completo (nova janela)</li>
+        <li>_parent: similar ao _top</li>
+        <li>nome-do-frame: caso esteja usando frames, indicar o nome da janela a abrir.</li>
+    </ul>
+</p>
+<a href="https://www.linkedin.com/in/lucas-dutra-a23a53159/" target="_blank">Acesse meu linkedIn</a>
+<h2>Esse link é seu?</h2>
+<p>Podemos indicar a natureza do destino do link utilizando o parâmetro rel que aceita os seguintes valores:</p>
+<ul>
+    <li>next: indica que o link é a proxima parte do documento atual.</li>
+    <li>prev: indica que o link é a parte anterior do documento atual.</li>
+    <li>author: indica que é um link para o site do autor do artigo atual.</li>
+    <li>external: indica que é um link para outro site que não faz parte do site atual.</li>
+    <li>nofollow: indica que é um link para um site não endossado, como um link pago.</li>
+</ul>
+</p>
+<a href="pagina1.html" target="_self" rel="next">Página 1</a>
+
+<!-- a simbologia ./ faz o endereçamento dentro da propria pasta onde há o link e ../ se refere a pasta anterior dos links, vai puxar os links da pasta anterior-->
+
+<p>Você também pode acessar nossa <a href="noticias/pagina2.html">página de notícias</a></p>
+
+<h2>Downloads</h2>
+<p>Podemos adicionar arquivos para download</p>
+<a href="downloads/ImprimirNF.pdf" download="ImprimirNF.pdf" type="application/pdf">Baixe a NF aqui</a>
+<!--Existem varios tipos de media type, nesse caso para pdf é application/pdf Este link possui todos -> https://www.iana.org/assignments/media-types/media-types.xhtml-->
+</body>
+</html>
