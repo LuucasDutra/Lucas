@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagens dinâmicas áudio e vídeos</title>
+</head>
+<body>
+    <h1>Imagens dinâmicas</h1>
+    <p>Aumente ou diminua o tamanho do seu navegador e veja como as imagens se comportam.</p>
+    <picture>
+        <source media="(max-width:750px)" srcset="imgDesafio08/foto-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imgDesafio08/foto-m.png" type="image/png">
+        <img src="imgDesafio08/foto-g.png" alt="Imagem flexível">
+    </picture>
+
+    <!--Observei que se o nome da pasta tiver espaços como as outras que eu criei, a imagem nao redimensiona-->
+</body>
+</html>
