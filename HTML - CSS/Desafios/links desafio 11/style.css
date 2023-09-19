@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: littlebird;
+    src: url(Fontes/littlebird.ttf);
+}
+@font-face {
+    font-family: bromello;
+    src: url(Fontes/BROMELLO.TTF);
+}
+
+h1 {
+    font-family: bromello;
+    font-size: 2em;
+    text-align: right;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.7em;    
+    font-weight: bold;
+    font-style: italic;
+    text-align: center; 
+}
+
+
+p {
+    font-family: littlebird;
+    font-size: 1.3em;
+    text-align: justify;
+    color: azure;
+}
+
+body{
+   
+        background-image: linear-gradient(to right, #001b69, #CF64BB, #910707);
+        background-attachment: fixed;
+    
+}
+
+
+
