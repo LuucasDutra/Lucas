@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(37, 37, 28);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: aquamarine;
+}
+
+h2 {
+    color: aqua;
+}
+
+/* # é usado para "chamar" o id */
+#principal{
+    text-align: center;
+    background-color: rgb(171, 108, 230);
+    color: white;
+}
+
+.basico {
+    color: rgb(145, 227, 227);
+}
+
+.intermediario {
+    color: brown;
+}
+
+.avancado {
+    color: rgb(220, 142, 142);
+}
+
+.destaque {
+    background-color: rgb(118, 0, 229);
+}
