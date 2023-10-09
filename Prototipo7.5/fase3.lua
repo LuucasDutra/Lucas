@@ -97,10 +97,10 @@ end
 
 -- Função para calcular o tamanho ideal das cartas
 local function tamanhoDaCarta()
-    local larguraDisponivel = display.actualContentWidth - (distancia * (numCols + 1))
-    local alturaDisponivel = display.actualContentHeight - (distancia * (numLinhas + 1))
-    larguraCarta = larguraDisponivel / numCols
-    alturaCarta = alturaDisponivel / numLinhas
+    local larguraTela = display.contentWidth
+    local alturaTela = display.contentHeight
+    larguraCarta = (larguraTela - (distancia * (numCols + 1))) / numCols
+    alturaCarta = (alturaTela - (distancia * (numLinhas + 1))) / numLinhas
 end
 
 -- Função para calcular o tamanho total do tabuleiro
@@ -115,11 +115,21 @@ end
 local function criarTab()
     -- Novo grupo para o tabuleiro
     local grupoTab = display.newGroup()
-    -- Calcula o tamanho total do tabuleiro
+    
+    -- Calcula o tamanho total do tabuleiro com base na largura e altura da tela do dispositivo
+    local larguraTela = display.contentWidth
+    local alturaTela = display.contentHeight
+    
     local larguraTabuleiro, alturaTabuleiro = tamanhoTabuleiro()
-    -- Posiciona o tabuleiro a partir do centro
-    local startX = (display.actualContentWidth - larguraTabuleiro) / 2 + 25
-    local startY = (display.actualContentHeight - alturaTabuleiro) / 2 + 45
+    
+    local proporcaoLarguraTabuleiro = 0.63  
+    larguraTabuleiro = larguraTela * proporcaoLarguraTabuleiro
+    alturaTabuleiro = alturaTela * proporcaoLarguraTabuleiro
+    
+    -- Posiciona o tabuleiro no centro da tela
+    local startX = (larguraTela - larguraTabuleiro) / 2
+    local startY = (alturaTela - alturaTabuleiro) / 2 - 25
+    
     -- Gera posições aleatórias para as cartas no tabuleiro
     local posicoes = {}
     for i = 1, numLinhas do
@@ -133,7 +143,7 @@ local function criarTab()
     for i = 1, numLinhas * numCols / 2 do
         for j = 1, 2 do
             local indice = (i - 1) * 2 + j
-            local carta = criarCarta(posicoes[indice][1], posicoes[indice][2], "imagens/"..cartas[i]..".png", "imagens/back.png")
+            local carta = criarCarta(posicoes[indice][1], posicoes[indice][2], "imagens/"..cartas[i]..".png", "imagens/back.png", larguraCarta, alturaCarta)
             grupoTab:insert(carta)
         end
     end
@@ -239,7 +249,7 @@ end
 function scene:create(event)
     local sceneGroup = self.view
 
-    local bg = display.newImageRect(sceneGroup, "imagens/bg.jpg", 2000 * 0.25, 2000 * 0.25)
+    local bg = display.newImageRect(sceneGroup, "imagens/bg.jpg", display.actualContentWidth, display.actualContentHeight)
     bg.x = display.contentCenterX
     bg.y = display.contentCenterY
 
@@ -247,16 +257,24 @@ function scene:create(event)
     tabuleiro:addEventListener("tap", onBoardTap)
     sceneGroup:insert(tabuleiro)
 
-    local fundo = display.newImageRect (sceneGroup,"cenas/pontostentativas.png", 1108/4, 100/4)
-    fundo.x = 120
-    fundo.y = 15
+    local larguraTabuleiro, alturaTabuleiro = tamanhoTabuleiro()
 
-    placarText = display.newText(sceneGroup, " " .. pontos, 65, 15.5, native.systemFont, 20)
-    tentativasText = display.newText(sceneGroup, " " .. tentativas, 220, 15.5, native.systemFont, 20)
+    local fundo = display.newImageRect(sceneGroup, "cenas/pontostentativas.png", 1108/4, 100/4)
+    fundo.x = 140
+
+    -- Calcula a posição Y com base na altura da tela
+    local alturaTela = display.contentHeight
+    local fundoY = 15.5 -- esse valor vai mudar a altura
+    fundo.y = fundoY
+
+    placarText = display.newText(sceneGroup, " " .. pontos, 85, 15.5, native.systemFont, 20)
+    tentativasText = display.newText(sceneGroup, " " .. tentativas, 240, 15.5, native.systemFont, 20)
 
     local button = display.newImageRect (sceneGroup,"cenas/botaomenu.png", 248/4, 100/4)
-	button.x = 306
-	button.y = 465
+	button.x = 290
+	local alturaTela = display.contentHeight
+    local buttonY = 465
+    button.y = buttonY
     button:addEventListener ("tap", gotoMenu)
     
     flipcard = audio.loadSound ("audios/flipcard.mp3")
