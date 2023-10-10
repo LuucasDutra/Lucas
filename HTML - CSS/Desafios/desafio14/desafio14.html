@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.332);
+        }
+
+        label{
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input[type= 'text'],
+        input[type= 'email'],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }        
+
+        input[type= 'checkbox'],
+        input[type = 'radio']{
+            margin-bottom: 10px;
+        }
+
+        input[type = 'date'],
+        select  {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            box-sizing: border-box;
+        }
+
+        textarea{
+            resize: vertical;
+        }
+
+        button[type='submit']{
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            margin-top: 10px;
+            padding: 12px 24px;
+            cursor: pointer;
+        }
+
+        button[type='submit']:hover{
+            background-color: rgb(46, 46, 249);
+        }
+
+    </style>
+
+</head>
+<body>
+    <form action="processar.php" method="post">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="Nome" placeholder="Seu nome completo" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Seu E-mail" required>
+
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" required>
+            <option value="masculino">Masculino</option>
+            <option value="feminino">Feminino</option>
+        </select>
+
+        <label for="Interesses">Interesses:</label>
+        <input type="checkbox" id = "interesses" name="interesses" value="esportes" ><strong>Esportes</strong>
+        <input type="checkbox" id = "interesses" name="interesses" value="tecnologia"><strong>Tecnologia</strong>
+        <input type="checkbox" id = "interesses" name="interesses" value="viagens"><strong>Viagens</strong>
+
+        <label for="saber">Como você ficou sabendo deste site?</label>
+        <input type="radio" name="saber" value="amigo" required><strong>Amigo</strong>
+        <input type="radio" name="saber" value="pesquisa"><strong>Pesquisa na internet</strong>
+        <input type="radio" name="saber" value="outro"><strong>Outro</strong>
+
+        <label for="data_nascimento">Data de nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento"  required>
+
+        <label for="comentario">Comentário:</label>
+        <textarea id="comentario" name="comentario" rows="4" placeholder="Deixe seu comentario"></textarea>
+
+        <label for="curriculo">Carregar currículo (PDF ou Doc):</label>
+        <input type="file"   id="curriculo"   name="curriculo"    accept=".pdf,.doc,.docx"    required> <br>
+    
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
