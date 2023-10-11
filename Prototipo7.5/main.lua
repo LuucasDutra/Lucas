@@ -1,4 +1,6 @@
 local composer = require ("composer")
+native.setProperty( "windowMode", "maximized" )
+native.setProperty( "mouseCursor", "pointingHand" )
 math.randomseed (os.time())
 display.setStatusBar (display.HiddenStatusBar)
 

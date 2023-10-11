@@ -189,18 +189,11 @@ function scene:create( event )
 
 	-- Backgrounds 
 
-	local bg1 = display.newImageRect (backGroup, "imagens/sea.png", 1999*0.25, 2000*0.25)
-	bg1.x = 160
-	bg1.y = 240
-	bg1.xScale = 1.202
-	bg1.yScale = 1.200
-	transition.to (bg1, {time=12000, x=-224, iterations=0})
+	local bg1 = display.newImageRect (backGroup, "imagens/bg.jpg", display.actualContentWidth, display.actualContentHeight)
+	bg1.x = display.contentCenterX
+    bg1.y = display.contentCenterY
 
-	local bg2 = display.newImageRect (backGroup, "imagens/sea.png", 1999*0.25, 2000*0.25)
-	bg2.x, bg2.y = 544, 240
-	bg2.xScale = 1.202
-	bg2.yScale = 1.200
-	transition.to (bg2, {time=12000, x=160, iterations=0})
+	
 
 	-- Player
 

@@ -40,14 +40,14 @@ function scene:create( event )
 		
 		--physics.pause()
 
-		local bg = display.newImageRect (sceneGroup, "imagens/beach.png", 2000*0.25, 2000*0.25)
+		local bg = display.newImageRect (sceneGroup, "imagens/beach.png", display.actualContentWidth, display.actualContentHeight)
 		bg.x = display.contentCenterX
-		bg.y = 210
+    	bg.y = display.contentCenterY
 		bg.rotation = 180
 
-		local predadores = display.newImageRect (sceneGroup, "imagens/platform.png",2000*0.18, 2000*0.18)
+		local predadores = display.newImageRect (sceneGroup, "imagens/platform.png",display.actualContentWidth/0.85, display.actualContentHeight/1.1)
 		predadores.x = display.contentCenterX
-		predadores.y = 300
+		predadores.y = 270
 
 		local plataforma = display.newRoundedRect (sceneGroup, display.contentCenterX, 440, 300, 25, 1)
 		plataforma.alpha = 0.01
